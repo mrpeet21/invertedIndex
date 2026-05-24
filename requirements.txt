@@ -1,0 +1,4 @@
+pandas
+pymorphy3
+nltk
+tqdm
