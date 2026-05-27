@@ -45,7 +45,6 @@ def load_pages(csv_path: str, max_docs: int | None = None) -> pd.DataFrame:
 def build_doc_id_maps(df: pd.DataFrame) -> tuple[dict[int, int], dict[int, int]]:
     """
     В CSV id страниц могут быть не подряд.
-    Для сжатия удобнее использовать внутренние doc_id: 1, 2, 3, ...
     """
     real_page_ids = sorted(df["id"].unique())
 
@@ -99,17 +98,13 @@ def build_inverted_index(    df: pd.DataFrame,
 
         tokens = preprocess_text(full_text)
 
-        # Обычный инвертированный индекс:
-        # здесь используем set(tokens), чтобы одно и то же слово
-        # не добавлялось несколько раз для одного документа.
+        
         for term in set(tokens):
             inverted_index[term].add(doc_id)
 
         indexing_time = time.perf_counter() - start
 
-        # Позиционный индекс:
-        # здесь НЕЛЬЗЯ использовать set(tokens),
-        # потому что нам нужны все позиции слова в документе.
+       
         for position, term in enumerate(tokens):
             positional_index[term][doc_id].append(position)
 
