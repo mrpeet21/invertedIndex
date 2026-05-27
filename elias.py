@@ -2,8 +2,6 @@ def gap_encode(numbers: list[int]) -> list[int]:
     """
     Преобразует posting list в список разностей.
 
-    Пример:
-    [12, 57, 104, 205] -> [12, 45, 47, 101]
     """
     if not numbers:
         return []
@@ -20,8 +18,6 @@ def gap_decode(gaps: list[int]) -> list[int]:
     """
     Восстанавливает posting list из списка разностей.
 
-    Пример:
-    [12, 45, 47, 101] -> [12, 57, 104, 205]
     """
     numbers = []
     current = 0
@@ -37,10 +33,6 @@ def elias_gamma_encode_number(n: int) -> str:
     """
     Gamma-кодирование Элиаса для одного положительного числа.
 
-    Пример:
-    n = 5
-    binary = 101
-    gamma = 00 + 101 = 00101
     """
     if n <= 0:
         raise ValueError("Elias Gamma works only for positive integers")
