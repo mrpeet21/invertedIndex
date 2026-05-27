@@ -6,7 +6,6 @@ import pymorphy3
 from nltk.stem import WordNetLemmatizer
 
 
-# Токен — последовательность русских/английских букв, цифр или нижних подчёркиваний.
 TOKEN_RE = re.compile(r"[a-zа-яё0-9_]+", re.IGNORECASE)
 RU_RE = re.compile(r"^[а-яё]+$")
 EN_RE = re.compile(r"^[a-z]+$")
@@ -57,7 +56,7 @@ def preprocess_text(text) -> list[str]:
     3. Достаём токены регулярным выражением.
     4. Лемматизируем каждый токен.
 
-    Важно:
+
     - стоп-слова НЕ удаляются;
     - короткие слова НЕ удаляются.
     """
