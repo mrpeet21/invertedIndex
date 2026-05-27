@@ -1,5 +1,5 @@
 
-Кусок кода из файла `indexer.py`
+Кусок кода из файла `indexer.py`, для понимания размеров индексов:
 
 ``` python
 def uncompressed_size_bits(index: dict[str, list[int]], bits_per_doc_id: int = 32) -> int:
@@ -142,6 +142,7 @@ def elias_gamma_length(n: int) -> int:
         raise ValueError("Elias Gamma works only for positive integers")
 
     return 2 * n.bit_length() - 1
+
 def elias_delta_length(n: int) -> int:
     """
     Длина delta-кода без фактического построения строки.
